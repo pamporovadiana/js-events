@@ -1,0 +1,30 @@
+.delete-row-btn::after {
+    content: 'remove';
+    color: black;
+    font-weight: bold;
+    position:absolute;
+    top: 40px;
+    right:-36px;
+    bottom:0;
+    z-index: 5;
+    transform: translate( -50%, -50% );
+    transition: all 1s;
+    opacity:0;
+}
+
+.delete-row-btn:hover::after,
+.delete-row-btn:active::after {
+    opacity: 1;
+}
+
+.subjects-field, tbody {
+    counter-reset: css-counter 0;
+}
+
+.subjects-field > div.subject-row div.number, tbody th {
+    counter-increment: css-counter 1;
+}
+
+.subjects-field > div.subject-row div.number:before, tbody th:before {
+    content: counter(css-counter) ". ";
+}
